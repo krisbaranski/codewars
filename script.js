@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Count the number of Duplicates
 
@@ -29,9 +29,9 @@ function duplicateCount(text) {
   try {
     return text
       .toLowerCase()
-      .split('')
+      .split("")
       .sort()
-      .join('')
+      .join("")
       .match(/()\1+/g)
       .length();
   } catch (e) {
@@ -39,16 +39,16 @@ function duplicateCount(text) {
   }
 }
 
-console.log(typeof duplicateCount('aaassd'), 2);
-console.log(duplicateCount(''), 0);
-console.log(duplicateCount('abcde'), 0);
-console.log(duplicateCount('aabbcde'), 2);
-console.log(duplicateCount('aabBcde'), 2, 'should ignore case');
-console.log(duplicateCount('Indivisibility'), 1);
+console.log(typeof duplicateCount("aaassd"), 2);
+console.log(duplicateCount(""), 0);
+console.log(duplicateCount("abcde"), 0);
+console.log(duplicateCount("aabbcde"), 2);
+console.log(duplicateCount("aabBcde"), 2, "should ignore case");
+console.log(duplicateCount("Indivisibility"), 1);
 console.log(
-  duplicateCount('Indivisibilities'),
+  duplicateCount("Indivisibilities"),
   2,
-  'characters may not be adjacent'
+  "characters may not be adjacent"
 );
 
 /*
