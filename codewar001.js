@@ -37,3 +37,9 @@ console.log(
   2,
   'characters may not be adjacent'
 );
+
+// This is an interesting problem. What we can do is turn the string to lower case using String.toLowerCase, and then split on "", so we get an array of characters.
+
+// We will then sort it with Array.sort. After it has been sorted, we will join it using Array.join. We can then make use of the regex /(.)\1+/g which essentially means match a letter and subsequent letters if it's the same.
+
+// When we use String.match with the stated regex, we will get an Array, whose length is the answer. Also used some try...catch to return 0 in case match returns null and results in TypeError.
