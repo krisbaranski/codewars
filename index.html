@@ -4,37 +4,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Test</title>
-    <style>
-      body {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        background: linear-gradient(to top left, #d45f96, #3c5ebb);
-      }
-
-      h1 {
-        font-family: sans-serif;
-        font-size: 60px;
-        line-height: 1.3;
-        width: 100%;
-        padding: 30px;
-        text-align: center;
-        color: rgba(22, 80, 167, 0.795);
-        text-shadow: 1px 1px 30px rgb(255, 255, 255);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+    <title>Codewars</title>
+    <style></style>
   </head>
 
   <body>
+    <div class="head">
+      <h1>Codewars</h1>
+    </div>
+    <div class="content">
+      <div class="box">
+        <h2 class="text">Codewar 1</h2>
+        <p class="code">
+          // Count the number of Duplicates <br />// Write a function that will
+          return the count of distinct case-insensitive alphabetic characters
+          and numeric digits that occur more than once in the input string. The
+          input string can be assumed to contain only alphabets (both uppercase
+          and lowercase) and numeric digits. <br /><br />// Example <br />//
+          "abcde" -> 0 # no characters repeats more than once <br />// "aabbcde"
+          -> 2 # 'a' and 'b' <br />// "aabBcde" -> 2 # 'a' occurs twice and 'b'
+          twice (`b` and `B`) <br />// "indivisibility" -> 1 # 'i' occurs six
+          times <br />// "Indivisibilities" -> 2 # 'i' occurs seven times and
+          's' occurs twice <br />// "aA11" -> 2 # 'a' and '1' <br />// "ABBA" ->
+          2 # 'A' and 'B' each occur twice <br />
+          <br /><br /><b>
+            function duplicateCount(text) { <br />
+
+            &emsp;try { return text .toLowerCase() .split('') .sort() .join('')
+            .match(/(.)\1+/g) .length; } <br />
+            &emsp;catch (e) { return 0; } <br />
+            } <br /><br /><br />
+          </b>
+
+          console.log(duplicateCount(''), 0); <br />
+          console.log(duplicateCount('abcde'), 0); <br />
+          console.log(duplicateCount('aabbcde'), 2); <br />
+          console.log(duplicateCount('aabBcde'), 2, 'should ignore case');
+          <br />
+          console.log(duplicateCount('Indivisibility'), 1); <br />
+          console.log( duplicateCount('Indivisibilities'), 2, 'characters may
+          not be adjacent' ); <br /><br />// This is an interesting problem.
+          What we can do is turn the string to lower case using
+          String.toLowerCase, and then split on "", so we get an array of
+          characters. <br />// We will then sort it with Array.sort. After it
+          has been sorted, we will join it using Array.join. We can then make
+          use of the regex /(.)\1+/g which essentially means match a letter and
+          subsequent letters if it's the same. <br />// When we use String.match
+          with the stated regex, we will get an Array, whose length is the
+          answer. Also used some try...catch to return 0 in case match returns
+          null and results in TypeError.
+        </p>
+      </div>
+      <div class="box">
+        <h2 class="text">Codewar 2</h2>
+        <p class="code">
+          // Take 2 strings s1 and s2 including only letters from ato z. Return
+          a new sorted string, the longest possible, containing distinct letters
+          - each taken only once - coming from s1 or s2. <br />
+          // a = "xyaabbbccccdefww" <br />// b = "xxxxyyyyabklmopq" <br />//
+          longest(a, b) -> "abcdefklmopqwxy" <br />// a =
+          "abcdefghijklmnopqrstuvwxyz" <br />// longest(a, a) ->
+          "abcdefghijklmnopqrstuvwxyz" <br /><br />// 1. Combine strings s1 and
+          s2. <br />// 2. Split the new string into an array of characters.
+          <br />// 3. Filter for unique values into a new array. <br />// 4.
+          Sort the new array from a to z and join it together, removing the
+          commas. <br />// - new sorted longest string, only letters, not
+          repearting: <br />// - return strings include only letters (a-z)
+          <br />// - letters taken only once // <br /><br /><br
+            >// first solution <br /><br /><b>
+            function longest(s1, s2) { <br /><br /></b>
+            // combining two strings without repeating same elements <br /><b>
+            const c = (s1 += s2); <br /></b><br>
+            // using "(...) -> spread", similar to .split(''); <br /><b>
+            const d = [...c]; </b><br><br />
+            // using filter <br /><b>
+            let e = d.filter( // (v, i, self) => <br />
+            console.log(self.indexOf(v)); <br>self.indexOf(v) === i // ); <br />
+            return e.sort().join(''); <br />
+            } </b></br
+          ><br /><br />
+          // second solution <br><br><b
+          > function longest(s1, s2) { // return
+            Array.from(new Set(s1 + s2)) // .sort() // .join(''); // } </b
+          >// // // third solution // function longest(s1, s2) { // let str =
+          new Set([...s1, ...s2]); // return [...str].sort().join(''); // } //
+          forth solution // function longest(s1, s2) { // return (s1 + s2) //
+          .split('') // .sort() // .join('') // .replace(/(.)\1+/g, '$1'); // }
+          // // fifth solution const longest = ($1, $2) => [...new Set([...$1,
+          ...$2])].sort().join(''); console.log(longest('aretheyhere',
+          'yestheyarehere'), 'aehrsty');
+        </p>
+      </div>
+      <div class="box">
+        <h2 class="text"></h2>
+        <p class="code"></p>
+      </div>
+      <div class="box">
+        <h2 class="text"></h2>
+        <p class="code"></p>
+      </div>
+    </div>
     <script src="script.js"></script>
-
-    <!-- this is inline code executed directly from html file: 
-    let js = "amazing";
-
-if (js === 'amazing') alert('JavaScript is FUN!')
- -->
-
-    <h1>Codewars</h1>
   </body>
 </html>
